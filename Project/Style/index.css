@@ -1,6 +1,6 @@
 body{
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-image: url("../Image/image2.jpg");
+    background: url("../Image/image2.jpg");
 }
 form{
     border: 2px solid #6D0875;
@@ -8,7 +8,7 @@ form{
     padding-left: 3%;
     padding-bottom: 3%;
     padding-top: 3%;
-    background-color: #f2f2f2da;
+    background-color: #f2f2f2;
     margin-left: 30%;
     margin-right: 20%;
     border-radius: 5px;
@@ -16,15 +16,15 @@ form{
 }
 footer{
     margin-top: 15%;
-    background-color: #0E0E0E;
+    background-color: #272727;
     text-align: center;
     vertical-align: middle;
     color: #F2F2F2;
 }
 input{
     border-radius: 5px;
-    border: 1px solid black;
-    color: black;
+    border: 1px solid #0E0E0E;
+    color: #0E0E0E;
     background-color: #F2F2F2;
     width: 65%;
 }
@@ -34,6 +34,11 @@ h2{
 form h2{
     color: #0E0E0E;
 }
+.ball {
+    position: absolute;
+    border-radius: 100%;
+    opacity: 0.7;
+  }
 .conteudo {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
