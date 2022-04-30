@@ -99,10 +99,6 @@ caixa de texto
   transform:translate(-50%, -50%);
 }
 
-h1 {
-  font-family:monospace;
-}
-
 @keyframes slide {
   0% {
     transform:translateX(-25%);
@@ -113,7 +109,7 @@ h1 {
 }
 
   /*
-  Botão
+  Botão do login
   */
   .btn {
     text-decoration: none;
