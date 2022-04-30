@@ -5,18 +5,18 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta http-equiv="X-UA-Compatible" content="ie=edge" />
         <link rel="stylesheet" href="login.css">
-        <link rel="stylesheet" href="tema.css">
-        <script src="background.js"></script>
+        <link rel="stylesheet" href="navbar.css">
+        <script src="loginBackground.js"></script>
     </head>
     <body>
-        <nav class="navbar">
+        <nav class="navbar" id="bar">
             <a href="index.html" id="logo">YourCloud</a>
             <input type="checkbox" id="toggler">
             <label for="toggler"><i class="ri-menu-line"></i></label>
             <div class="menu">
                 <ul class="list">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="">Sobre Nós</a></li>
+                    <li><a id="au" href="index.html">Home</a></li>
+                    <li><a id="au" href="">Sobre Nós</a></li>
                     <li>
                         <input type="checkbox" id="tema" onclick="background()">
                         <label for="tema" class="button"></label>
@@ -24,7 +24,7 @@
                 </ul>
             </div>
         </nav>
-        <div class="box">
+        <div class="box" id="box">
             <form>
                 <span class="text-center">login</span>
             <div class="input-container">
@@ -45,8 +45,6 @@
         <div class="bg"></div>
         <div class="bg bg2"></div>
         <div class="bg bg3"></div>
-        <div class="content">
-        </div>
     </body>
 </html>
  
