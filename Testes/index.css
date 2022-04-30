@@ -10,8 +10,8 @@ form{
   padding-bottom: 3%;
   padding-top: 3%;
   background-color: rgba(0, 0, 0, 0.89);
-  margin-left: 30%;
-  margin-right: 20%;
+  margin-left: 60%;
+  margin-right: 10%;
   border-radius: 5px;
   text-align: center;
   font-size: 18px;
@@ -44,50 +44,6 @@ form h2{
   border-radius: 100%;
   opacity: 0.7;
 }
-.conteudo {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-}
-.produtos{
-  border: 2px solid rgb(94, 2, 89);
-  border-radius: 5px;
-  display: flex;
-  flex-direction: row;
-  background-color: rgba(0, 0, 0, 0.89);
-  text-decoration: none;
-  color: #F2F2F2;
-}
-.produtos li{
-  display: flex;
-  list-style: none;
-}
-.navbar{
-  border-radius: 5px;
-  border: 2px solid rgb(94, 2, 89);
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-  background-color: rgba(0, 0, 0, 0.89);
-  padding: 15px;
-}
-.navbar a{
-  text-decoration: none;
-  color: rgb(94, 2, 89);
-}
-.list{
-  list-style: none;
-  display: flex;
-  gap: 25px;
-}
-.list a{
-  text-decoration: none;
-  position: relative;
-  font-size: 18px;
-}
-#toggler, .navbar label{
-  display: none;
-}
 #ou{
   text-align: center;
 }
@@ -112,26 +68,6 @@ form h2{
 }
 #login:hover::after, .list li a:hover::after{
   transform: scaleX(1);
-}
-#logo{
-  background-color: rgb(94, 2, 89);
-  margin-right: 50px;
-  display: inline-block;
-  text-decoration: none;
-  letter-spacing: 2px;
-  color: #F2F2F2;
-  outline: 2px solid #F2F2F2;
-  padding: 20px 50px;
-  position: relative;
-  overflow: hidden;
-  transition: color 1s;
-  border-bottom-left-radius: 10px;
-  border-top-right-radius: 10px;
-}
-#logo:hover{
-  color: rgb(94, 2, 89);
-  background-color: rgba(0, 0, 0, 0.89);
-  outline: 2px solid rgb(94, 2, 89);
 }
 #submit, #reset {
   text-decoration: none;
