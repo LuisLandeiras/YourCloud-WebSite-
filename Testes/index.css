@@ -17,7 +17,6 @@ form{
   font-size: 18px;
 }
 footer{
-  margin-top: 15%;
   background-color: rgba(0, 0, 0, 0.89);
   text-align: center;
   vertical-align: middle;
@@ -110,8 +109,4 @@ form h2{
 #submit:hover:before, #reset:hover:before{
   left: 100%;
 }
-
-/*
-Caixas de txto
-*/
 
