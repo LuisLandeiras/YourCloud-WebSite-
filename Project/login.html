@@ -1,21 +1,46 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
     <head>
-        <title>YourCloud</title>
-        <link rel="stylesheet" href="Style/login.css">
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="./Style/login.css">
+        <link rel="stylesheet" href="./Style/navbar.css">
+        <script src="./Script/loginBackground.js"></script>
+        <title>Login</title>
     </head>
     <body>
-        <form action="">
-            <label class="mail" for="">Email:</label>
-            <input type="email">
-            <br>
-            <p></p>
-            <label class="pass" for="">Password:</label>
-            <input type="password">
-            <br>
-            <p></p>
-            <input type="submit" id="" value="Login">
-            <input type="reset" value="Limpar">
-        </form>
+        <nav class="navbar" id="bar">
+            <a href="index.html" id="logo">YourCloud</a>
+            <input type="checkbox" id="toggler">
+            <label for="toggler"><i class="ri-menu-line"></i></label>
+            <div class="menu">
+                <ul class="list">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="sobre.html">Sobre Nós</a></li>
+                    <li>
+                        <input type="checkbox" id="tema" onclick="background()">
+                        <label for="tema" class="button"></label>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <div class="box" id="box">
+            <form>
+                <span class="text-center">login</span>
+                <div class="input-container">
+                    <input type="mail" required=""/>
+                    <label>Email</label>		
+                </div>
+                <div class="input-container">		
+                    <input type="password" required=""/>
+                    <label>Password</label>
+                </div>
+                <div id="divbtn">
+                    <button type="button" class="btn">Login</button>
+                </div>    
+            </form>	
+        </div>
+        <div class="bg"></div>
+        <div class="bg bg2"></div>
+        <div class="bg bg3"></div>  
     </body>
 </html>
