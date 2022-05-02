@@ -11,7 +11,7 @@
     <body>
         <?php include './Templates/nav.php';?>
         <div class="box" id="box">
-            <form>
+            <form action="./DataBase/login.php" method="GET">
                 <span class="text-center">login</span>
                 <div class="input-container">
                     <input type="text" required=""/>
@@ -22,7 +22,7 @@
                     <label>Password</label>
                 </div>
                 <div id="divbtn">
-                    <button type="button" class="btn">Login</button>
+                    <button type="submit" class="btn">Login</button>
                 </div>    
             </form>	
         </div>

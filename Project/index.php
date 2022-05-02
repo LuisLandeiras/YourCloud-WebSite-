@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<?php include('include/config.php');?>
 <html>
     <head>
         <meta charset="UTF-8" />
@@ -13,11 +12,11 @@
     </head>
     <body>
       <?php include './Templates/nav.php';?>
-      <form id="box">
+      <form id="box" action="./DataBase/register.php" method="POST">
           <h3 id="h3">Faça já o seu Registo:</h3>
           <label>Primeiro Nome:</label>
           <br>
-          <input type="text">
+          <input type="text" required="" name="Nome">
           <br>
           <p></p>
           <label>Apelido:</label>
@@ -27,17 +26,17 @@
           <p></p>
           <label>UserName</label>
           <br>
-          <input type="text">
+          <input type="text" required="" name="UserName">
           <br>
           <p></p>
           <label>Password:</label>
           <br>
-          <input type="password" minlength="8" id="pass">
+          <input type="password" minlength="8" maxlength="11" id="pass" required="" name="Pass">
           <br>
           <p></p>
           <label>Repita a Password:</label>
           <br>
-          <input type="password" id="repitepass">   
+          <input type="password" id="repitepass" required="">   
           <br>
           <p></p>
           <button type="submit" id="submit" value="Registar" onclick="equal()">Registar</button>
@@ -76,57 +75,6 @@
       </div>
     </div>
     <?php include './Templates/footer.php';?>
-      <div class="stars" id="stars">
-          <div class="star"></div>
-          <div class="star"></div>
-          <div class="star"></div>
-          <div class="star"></div>
-          <div class="star"></div>
-          <div class="star"></div>
-          <div class="star"></div>
-          <div class="star"></div>
-          <div class="star"></div>
-          <div class="star"></div>
-          <div class="star"></div>
-          <div class="star"></div>
-          <div class="star"></div>
-          <div class="star"></div>
-          <div class="star"></div>
-          <div class="star"></div>
-          <div class="star"></div>
-          <div class="star"></div>
-          <div class="star"></div>
-          <div class="star"></div>
-          <div class="star"></div>
-          <div class="star"></div>
-          <div class="star"></div>
-          <div class="star"></div>
-          <div class="star"></div>
-          <div class="star"></div>
-          <div class="star"></div>
-          <div class="star"></div>
-          <div class="star"></div>
-          <div class="star"></div>
-          <div class="star"></div>
-          <div class="star"></div>
-          <div class="star"></div>
-          <div class="star"></div>
-          <div class="star"></div>
-          <div class="star"></div>
-          <div class="star"></div>
-          <div class="star"></div>
-          <div class="star"></div>
-          <div class="star"></div>
-          <div class="star"></div>
-          <div class="star"></div>
-          <div class="star"></div>
-          <div class="star"></div>
-          <div class="star"></div>
-          <div class="star"></div>
-          <div class="star"></div>
-          <div class="star"></div>
-          <div class="star"></div>
-          <div class="star"></div>
-      </div>
+    <?php include './Templates/indexbackground.php';?>
     </body>
 </html>
