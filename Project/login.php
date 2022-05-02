@@ -4,25 +4,12 @@
         <meta charset="UTF-8">
         <link rel="stylesheet" href="./Style/login.css">
         <link rel="stylesheet" href="./Style/navbar.css">
+        <link rel="stylesheet" href="./Style/footer.css">
         <script src="./Script/loginBackground.js"></script>
         <title>Login</title>
     </head>
     <body>
-        <nav class="navbar" id="bar">
-            <a href="index.html" id="logo">YourCloud</a>
-            <input type="checkbox" id="toggler">
-            <label for="toggler"><i class="ri-menu-line"></i></label>
-            <div class="menu">
-                <ul class="list">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="sobre.html">Sobre Nós</a></li>
-                    <li>
-                        <input type="checkbox" id="tema" onclick="background()">
-                        <label for="tema" class="button"></label>
-                    </li>
-                </ul>
-            </div>
-        </nav>
+        <?php include './Templates/nav.php';?>
         <div class="box" id="box">
             <form>
                 <span class="text-center">login</span>
@@ -39,8 +26,9 @@
                 </div>    
             </form>	
         </div>
+        <?php include './Templates/footer.php';?>
         <div class="bg"></div>
         <div class="bg bg2"></div>
-        <div class="bg bg3"></div>  
+        <div class="bg bg3"></div>
     </body>
 </html>
