@@ -1,3 +1,4 @@
+<?php include('./DataBase/server.php')?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -12,16 +13,12 @@
     </head>
     <body>
       <?php include './Templates/nav.php';?>
-      <form id="box" action="./DataBase/register.php" method="POST">
+      <form id="box" action="index.php" method="post">
+          <?php include('./DataBase/errors.php');?>
           <h3 id="h3">Faça já o seu Registo:</h3>
           <label>Primeiro Nome:</label>
           <br>
           <input type="text" required="" name="Nome">
-          <br>
-          <p></p>
-          <label>Apelido:</label>
-          <br>
-          <input type="text">
           <br>
           <p></p>
           <label>UserName</label>
@@ -36,10 +33,10 @@
           <p></p>
           <label>Repita a Password:</label>
           <br>
-          <input type="password" id="repitepass" required="">   
+          <input type="password" id="repitepass" required="" name="PassConf">   
           <br>
           <p></p>
-          <button type="submit" id="submit" value="Registar" onclick="equal()">Registar</button>
+          <button type="submit" id="submit" value="Registar" name="registar">Registar</button>
           <button type="reset" id="reset" value="Limpar">Limpar</button>
           <p id="ou"> <br> ------Ou------</p>
           <br>

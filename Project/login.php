@@ -1,3 +1,4 @@
+<?php include('./DataBase/server.php')?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -11,18 +12,19 @@
     <body>
         <?php include './Templates/nav.php';?>
         <div class="box" id="box">
-            <form action="./DataBase/login.php" method="GET">
+            <form action="login.php" method="post">
+                <?php include('./DataBase/errors.php');?>
                 <span class="text-center">login</span>
                 <div class="input-container">
-                    <input type="text" required=""/>
+                    <input type="text" required="" name="UserName"/>
                     <label>UserName</label>		
                 </div>
                 <div class="input-container">		
-                    <input type="password" required=""/>
+                    <input type="password" required="" name="Pass"/>
                     <label>Password</label>
                 </div>
                 <div id="divbtn">
-                    <button type="submit" class="btn">Login</button>
+                    <button type="submit" class="btn" name="login">Login</button>
                 </div>    
             </form>	
         </div>
