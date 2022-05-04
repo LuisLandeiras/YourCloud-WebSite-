@@ -26,7 +26,5 @@
         mysqli_query($db, $sql);
         $_SESSION['success'] = "You are now logged in";
         echo $_SESSION['success'];
-    }
-
-    
+    }  
 ?>
