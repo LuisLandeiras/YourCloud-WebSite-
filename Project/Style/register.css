@@ -65,6 +65,7 @@ form h2{
 /*----------------------------------------------*/
 /*Animação dos butões do formulário*/
 #submit, #reset {
+  word-wrap:break-word;
   text-decoration: none;
   background:transparent;
   border: 1px solid rgb(151, 3, 139);
@@ -108,15 +109,10 @@ form h2{
 /*-------------------------------------------*/
 /*Animação das cartas de informação*/
 *{
-  margin: 0;
-  padding: 0;
   box-sizing: border-box;
   font-family: consolas;
 }
 .container{
-  display: grid;
-  justify-content: center;
-  align-items: center;
   flex-wrap: wrap;
   padding: 40px 0;
 }
@@ -281,13 +277,13 @@ form h2{
   box-shadow: 0 1px 15px rgba(1, 1, 1, 0.2);
 }
 .container .box:nth-child(1){
-  margin-left: -120%;
+  margin-left: 10%;
 }
 .container .box:nth-child(2){
-  margin-left: 120%;
+  margin-left: 70%;
 }
 .container .box:nth-child(3){
-  margin-left: -120%;
+  margin-left: 10%;
 }
 /*-----------------------------------*/
 

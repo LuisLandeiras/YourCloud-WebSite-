@@ -60,7 +60,7 @@
   border-top-right-radius: 10px;
 }
 #logo:hover{
-  color: rgb(94, 2, 89);
+  color: #F2F2F2;
   background-color: rgba(0, 0, 0, 0.89);
   outline: 2px solid rgb(94, 2, 89);
 }

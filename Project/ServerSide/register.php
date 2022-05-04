@@ -15,15 +15,18 @@
 
     if($pass !== $password){
         echo "Passwords do not match";
-        header('location: ../register.html');
-        mail($email,$assunto,$mens,$headers);   
+        header('location: ../register.html'); 
     }
     else if($num == 1){
+        header('location: ../register.html');
         echo "Username already exists";
     }
     else{
         $sql = "INSERT INTO registos (Nome, UserName, Pass) VALUES ('$name', '$username', '$password')";
         mysqli_query($db, $sql);
         $_SESSION['success'] = "You are now logged in";
+        echo $_SESSION['success'];
     }
+
+    
 ?>
