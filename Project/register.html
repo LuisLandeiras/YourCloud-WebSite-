@@ -26,25 +26,26 @@
         </div>
       </nav>
       <br>
-      <form id="box" action="./ServerSide/register.php" method="post">
+      <form class="box" id="box" action="./ServerSide/register.php" method="post">
         <h3 id="h3">Faça já o seu Registo:</h3>
         <br>
-        <label>Primeiro Nome:</label>
-        <br>
-        <input type="text" required="" name="Nome">
-        <br>
-        <label>UserName</label>
-        <br>
-        <input type="text" required="" name="UserName">
-        <br>
-        <label>Password:</label>
-        <br>
-        <input type="password" minlength="8" maxlength="20" id="pass" required="" name="Pass">
-        <br>
-        <label>Repita a Password:</label>
-        <br>
-        <input type="password" minlength="8" maxlength="20" id="repitepass" required="" name="PassConf">   
-        <br>
+          <div class="input-container">
+            <input type="text" required="" name="Nome">
+            <label>Primeiro Nome</label>
+            <br>
+          </div>
+          <div class="input-container">
+            <input type="text" required="" name="UserName">
+            <label >UserName</label>
+          </div>
+          <div class="input-container">
+            <input type="password" minlength="8" maxlength="20" id="pass" required="" name="Pass">
+            <label>Password</label>
+          </div>
+          <div class="input-container">
+            <input type="password" minlength="8" maxlength="20" id="repitepass" required="" name="PassConf"> 
+            <label>Repita a Password</label>  
+          </div>
         <button type="submit" id="submit" value="Registar" name="registar">Registar </button>
         <button type="reset" id="reset" value="Limpar">Limpar</button>
         <p id="ou"> <br> ------Ou------</p>
