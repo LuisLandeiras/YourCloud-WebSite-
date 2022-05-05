@@ -8,6 +8,8 @@
 <html>
 <head>
 	<title>Home</title>
+    <link rel="stylesheet" href="../Style/navbar.css">
+    <link rel="stylesheet" href="../Style/paginautilizador.css">
 </head>
 <body>
 	<nav class="navbar" id="bar">
