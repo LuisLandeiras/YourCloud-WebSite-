@@ -1,19 +1,43 @@
+<?php 
+  
+  session_start(); 
+	if (isset($_SESSION['username'])) {	
+		header('location: login.php');
+	}
+?>
+
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pagina utilizador</title>
+	<title>Home</title>
+    <link rel="stylesheet" type="text/css" href="../Project/Style/navbar.css">
+    <link rel="stylesheet" type="text/css" href="paginautilizador.css">
 </head>
 <body>
-    <table border="1">
-    <tr>
-        <td></td>
-    </tr>
-    <tr>
-        <td></td>
-    </tr>
-    </table>
+	<nav class="navbar" id="bar">
+        <a href="index.php" id="logo" target=_blank>YourCloud</a>
+        <input type="checkbox" id="toggler">
+        <label for="toggler"><i class="ri-menu-line"></i></label>
+        <div class="menu">
+            <ul class="list">
+                <li><a href="sobre.php" target=_blank>Sobre Nós</a></li>
+				<li><a href="logout.php">Logout</a></li>
+                <li>
+                    <input type="checkbox" id="tema" onclick="background()">
+                    <label for="tema" class="button" id="button"></label>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <br>
+
+    <div>
+        <form action="" method="post" enctype="multipart/form-data" >
+            <h3>Upload File</h3>
+            <input type="file" name="myfile"> <br> <br>
+            <button type="submit" name="save">upload</button>
+        </form>
+    </div>
+
 </body>
 </html>

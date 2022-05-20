@@ -34,22 +34,4 @@ if (isset($_POST['save'])) { // if save button on the form is clicked
         }
     }
 }
-
-//Downloads files
-if(isset($_GET['id'])){
-    $id=$_GET['id'];
-    $stat = $conn->prepare("select * fromm files where id=?");
-    $stat->bind_param(1,$id);
-    $stat->execute();
-    $data = $stat->fetch();
-
-    $file = './ServerSide' .$data['name'];
-
-    if(file_exists($file)){
-        header('Content-Disposition: '.'name ="' .basename($file).'"');
-        header('Content-Length: '.filesize($file));
-        readfile($file);
-        exit;
-    }
-}
 ?>
