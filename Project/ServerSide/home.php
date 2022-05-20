@@ -1,11 +1,11 @@
 <?php 
-  
-  session_start(); 
+    session_start(); 
 	if (isset($_SESSION['username'])) {	
 		header('location: login.php');
 	}
 ?>
-<?php include 'files.php';?>
+<?php include 'upload.php';?>
+<?php include 'download.php';?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -29,10 +29,40 @@
         </div>
     </nav>
     <br>
-    <form action="home.php" method="post" enctype="multipart/form-data" >
+    <form action="upload.php" method="post" enctype="multipart/form-data" >
         <h3>Upload File</h3>
         <input type="file" name="myfile"> <br> <br>
         <button type="submit" name="save">upload</button>
     </form>
+    <br>
+
+
+
+    <table>
+			<thead>
+				<tr>
+					<th>#</th>
+					<th>File</th>
+                    <th>Size(Mb)</th>	
+                    <th>View</th>
+                    <th>Download</th>
+				</tr>
+			</thead>
+			<?php
+			$query=$conn->query("select * from files order by id desc");
+			while($row=$query->fetch()){
+				$name=$row['Nome'];
+                $id=$row['id'];
+                $size=$row['Tamanho'];
+			?>
+			<tr>
+                <td><?php echo $id;?></td>
+				<td>&emsp;<?php echo $name;?></td>
+                <td>&emsp;<?php echo number_format((float)$size/1024/1024, 3);?></td>
+                <td></td>
+				<td><button><a href="download.php?file='. urlencode($image) . '"></a>download</button></td>
+			</tr>
+			<?php }?>
+		</table>
 </body>
 </html>

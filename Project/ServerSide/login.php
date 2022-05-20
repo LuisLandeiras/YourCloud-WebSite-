@@ -16,6 +16,6 @@
         header('location: home.php');
     }
     else{
-        header('location: ../ClientSide/login.html');
+        header('location: ../ClientSide/login.php');
     }
 ?>

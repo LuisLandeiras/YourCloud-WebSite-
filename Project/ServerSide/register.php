@@ -13,15 +13,26 @@
     $num = mysqli_num_rows($result);
 
     if($pass !== $password){
-        echo "Passwords do not match"; 
+        header('location: ../register.php');
+        ?>
+        <script>
+            alert('Passwords do not match');
+            window.location.href='../register.php';
+        </script>
+        <?php
     }
     else if($num == 1){
-        echo "Username already exists";
+        header('location: ../register.php');
+        ?>
+        <script>
+            alert('Username already exists');
+            window.location.href='../register.php';
+        </script>
+        <?php
     }
     else{
         $sql = "INSERT INTO registos (Nome, UserName, Pass) VALUES ('$name', '$username', '$password')";
         mysqli_query($db, $sql);
-        //echo "You are now logged in";
-        header("Location: ../ClientSide/login.html");
+        header("Location: ../ClientSide/login.php");
     }  
 ?>

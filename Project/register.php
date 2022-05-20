@@ -12,13 +12,13 @@
     </head>
     <body>
       <nav class="navbar" id="bar">
-        <a href="register.html" id="logo">YourCloud</a>
+        <a href="register.php" id="logo">YourCloud</a>
         <input type="checkbox" id="toggler">
         <label for="toggler"><i class="ri-menu-line"></i></label>
         <div class="menu">
             <ul class="list">
                 <li><a href="./ClientSide/sobre.html" target=_blank>Sobre Nós</a></li>
-                <li><a href="./ClientSide/login.html">Login</a></li>
+                <li><a href="./ClientSide/login.php">Login</a></li>
                 <li>
                     <input type="checkbox" id="tema" onclick="background()">
                     <label for="tema" class="button" id="button"></label>
@@ -84,56 +84,5 @@
     </div>
     <footer>YourCloud</footer>
     </body>
-    <div class="stars" id="stars">
-      <div class="star"></div>
-      <div class="star"></div>
-      <div class="star"></div>
-      <div class="star"></div>
-      <div class="star"></div>
-      <div class="star"></div>
-      <div class="star"></div>
-      <div class="star"></div>
-      <div class="star"></div>
-      <div class="star"></div>
-      <div class="star"></div>
-      <div class="star"></div>
-      <div class="star"></div>
-      <div class="star"></div>
-      <div class="star"></div>
-      <div class="star"></div>
-      <div class="star"></div>
-      <div class="star"></div>
-      <div class="star"></div>
-      <div class="star"></div>
-      <div class="star"></div>
-      <div class="star"></div>
-      <div class="star"></div>
-      <div class="star"></div>
-      <div class="star"></div>
-      <div class="star"></div>
-      <div class="star"></div>
-      <div class="star"></div>
-      <div class="star"></div>
-      <div class="star"></div>
-      <div class="star"></div>
-      <div class="star"></div>
-      <div class="star"></div>
-      <div class="star"></div>
-      <div class="star"></div>
-      <div class="star"></div>
-      <div class="star"></div>
-      <div class="star"></div>
-      <div class="star"></div>
-      <div class="star"></div>
-      <div class="star"></div>
-      <div class="star"></div>
-      <div class="star"></div>
-      <div class="star"></div>
-      <div class="star"></div>
-      <div class="star"></div>
-      <div class="star"></div>
-      <div class="star"></div>
-      <div class="star"></div>
-      <div class="star"></div>
-    </div>
+    <?php include './Templates/back.html'; ?>
 </html>
