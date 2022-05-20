@@ -6,5 +6,65 @@ body{
   padding-left: 1%;
   padding-right: 1%;
 }
-
+form{
+  border: 2px solid rgb(94, 2, 89);
+  padding-right: 3%;
+  padding-left: 3%;
+  padding-bottom: 3%;
+  padding-top: 3%;
+  background-color: rgba(0, 0, 0, 0.89);
+  margin-left: 60%;
+  margin-right: 10%;
+  border-radius: 5px;
+  text-align: center;
+  font-size: 18px;
+}
+input{
+  border-radius: 5px;
+  color: #0E0E0E;
+  background-color: #F2F2F2;
+}
+label{
+  color:rgb(94, 2, 89);
+}
+.input-container{
+	position:relative;
+	margin-bottom:25px;
+}
+.input-container label{
+	position:absolute;
+	top:0px;
+	left:0px;
+	font-size:16px;
+	color:rgb(103, 1, 100);	
+	transition: all 0.5s ease-in-out;
+}
+.input-container input{ 
+  border:0;
+  border-bottom:1px solid #555;  
+  background:transparent;
+  width:100%;
+  padding:8px 0 5px 0;
+  font-size:16px;
+  color:rgb(103, 3, 123);
+}
+.input-container input:focus{ 
+  border:none;	
+  outline:none;
+  border-bottom:1px solid #cd048a;	
+}
+.input-container input:focus ~ label,.input-container input:valid ~ label{
+	top:-12px;
+	font-size:12px;	
+} 
+h3{
+  color: #F2F2F2;
+}
+form h2{
+  color:rgb(94, 2, 89);
+}
+#ou{
+  color: #F2F2F2;
+  text-align: center;
+}
 
