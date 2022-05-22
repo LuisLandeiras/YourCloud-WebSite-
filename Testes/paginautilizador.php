@@ -31,11 +31,14 @@
     </nav>
     <br>
 
-    <div>
+    <div class="tabela"> 
         <form action="" method="post" enctype="multipart/form-data" >
+            <table border="1">
             <h3>Upload File</h3>
             <input type="file" name="myfile"> <br> <br>
             <button type="submit" name="save">upload</button>
+            </table>
+            
         </form>
     </div>
 
