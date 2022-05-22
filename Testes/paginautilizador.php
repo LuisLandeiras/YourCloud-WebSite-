@@ -55,5 +55,36 @@
         }
 	</script>
 
+<table>
+			<thead>
+				<tr>
+					<th>#</th>
+					<th>File</th>
+                    <th>Size(Mb)</th>	
+                    <th>View</th>
+                    <th>Download</th>
+                    <th>Eliminar</th>
+				</tr>
+			</thead>
+			<?php
+			$query=$conn->query("select * from files order by id desc");
+            $i = 0;
+			while($row=$query->fetch()){
+				$name=$row['Nome'];
+                $i++;
+                $size=$row['Tamanho'];
+			?>
+			<tr>
+                <td><?php echo $i;?></td>
+				<td>&emsp;<?php echo $name;?></td>
+                <td>&emsp;<?php echo number_format((float)$size/1024/1024, 3);?></td>
+                <td><a href="./Uploads/<?php echo $row['Nome'];?>" target="_blank">view</a></td>
+				<td><a href="">download</a></td>
+                <td><a href="?delete=<?php echo $row['id']; ?>">eliminar</a></td>
+			</tr>
+			<?php } ?>
+	</table>
+
 </body>
 </html>
+
