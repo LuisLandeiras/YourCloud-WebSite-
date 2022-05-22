@@ -12,6 +12,8 @@
 	<title>Home</title>
     <link rel="stylesheet" type="text/css" href="../Project/Style/navbar.css">
     <link rel="stylesheet" type="text/css" href="paginautilizador.css">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+
 </head>
 <body>
 	<nav class="navbar" id="bar">
@@ -22,6 +24,7 @@
             <ul class="list">
                 <li><a href="sobre.php" target=_blank>Sobre Nós</a></li>
 				<li><a href="logout.php">Logout</a></li>
+                <li><a onclick="view()" style="cursor: pointer;">Upload</a></li>
                 <li>
                     <input type="checkbox" id="tema" onclick="background()">
                     <label for="tema" class="button" id="button"></label>
@@ -31,16 +34,26 @@
     </nav>
     <br>
 
-    <div class="tabela"> 
+    <div class="tabela" style="display: none;"> 
         <form action="" method="post" enctype="multipart/form-data" >
-            <table border="1">
-            <h3>Upload File</h3>
+            <div id="container">
+                <div id="texto"><h3>Upload File</h3></div>
+                <div id="close"><button onclick="close()">X</button></div>
+            </div>
             <input type="file" name="myfile"> <br> <br>
             <button type="submit" name="save">upload</button>
-            </table>
-            
         </form>
     </div>
+
+    <script>
+        function view() {
+            document.getElementsByClassName("tabela")[0].style.display = "block";
+            document.getElementsByClassName("tabela")[0].style = "position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);";
+        }
+        function close(){
+            document.getElementsByClassName("tabela")[0].style.display = "none";
+        }
+	</script>
 
 </body>
 </html>
