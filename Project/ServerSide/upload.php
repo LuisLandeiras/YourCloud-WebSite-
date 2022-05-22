@@ -1,11 +1,10 @@
 <?php
-	$conn=new PDO('mysql:host=localhost; dbname=test', 'root', '');
+	$conn = new PDO('mysql:host=localhost; dbname=test', 'root', '');
 	if(isset($_POST['save']) != ""){
 	  $name=$_FILES['myfile']['name'];
-	  $id;
 	  $size=$_FILES['myfile']['size'];
 	  $temp=$_FILES['myfile']['tmp_name'];
-	  $fname = date("YmdHis").'_'.$name;
+	  $fname = $name;
 	  $chk = $conn->query("SELECT * FROM  files where Nome = '$name' ")->rowCount();
 	  if($chk){
 	    $i = 1;

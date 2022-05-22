@@ -1,11 +1,12 @@
 <?php 
     session_start(); 
-	if (isset($_SESSION['username'])) {	
+	if (isset($_SESSION['id'])) {	
 		header('location: login.php');
 	}
 ?>
 <?php include 'upload.php';?>
 <?php include 'download.php';?>
+<?php include 'delete.php';?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -35,9 +36,6 @@
         <button type="submit" name="save">upload</button>
     </form>
     <br>
-
-
-
     <table>
 			<thead>
 				<tr>
@@ -46,23 +44,26 @@
                     <th>Size(Mb)</th>	
                     <th>View</th>
                     <th>Download</th>
+                    <th>Eliminar</th>
 				</tr>
 			</thead>
 			<?php
 			$query=$conn->query("select * from files order by id desc");
+            $i = 0;
 			while($row=$query->fetch()){
 				$name=$row['Nome'];
-                $id=$row['id'];
+                $i++;
                 $size=$row['Tamanho'];
 			?>
 			<tr>
-                <td><?php echo $id;?></td>
+                <td><?php echo $i;?></td>
 				<td>&emsp;<?php echo $name;?></td>
                 <td>&emsp;<?php echo number_format((float)$size/1024/1024, 3);?></td>
-                <td></td>
-				<td><button><a href="download.php?file='. urlencode($image) . '"></a>download</button></td>
+                <td><a href="./Uploads/<?php echo $row['Nome'];?>" target="_blank">view</a></td>
+				<td><a href="">download</a></td>
+                <td><a href="?delete=<?php echo $row['id']; ?>">eliminar</a></td>
 			</tr>
-			<?php }?>
-		</table>
+			<?php } ?>
+	</table>
 </body>
 </html>
