@@ -55,7 +55,7 @@
         }
 	</script>
 
-<table>
+<table class="tb">
 			<thead>
 				<tr>
 					<th>#</th>
