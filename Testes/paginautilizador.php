@@ -10,7 +10,7 @@
 <html>
 <head>
 	<title>Home</title>
-    <link rel="stylesheet" type="text/css" href="../Project/Style/navbar.css">
+    <link rel="stylesheet" type="text/css" href="../Pr/Style/navbar.css">
     <link rel="stylesheet" type="text/css" href="paginautilizador.css">
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
 
@@ -82,6 +82,7 @@
 				<td><a href="">download</a></td>
                 <td><a href="?delete=<?php echo $row['id']; ?>">eliminar</a></td>
 			</tr>
+            <hr style="color: red;">
 			<?php } ?>
 	</table>
 
