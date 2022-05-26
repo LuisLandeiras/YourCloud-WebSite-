@@ -6,10 +6,13 @@
         $select_stmt->bindParam(':id', $id);
         $select_stmt->execute();
         $row=$select_stmt->fetch(PDO::FETCH_ASSOC);
+
         unlink("./Uploads/".$row['Nome']);
+
         $delete_stmt=$conn->prepare('DELETE FROM files WHERE id=:id');
         $delete_stmt->bindParam(':id', $id);
         $delete_stmt->execute();
-        header("location:home.php");
+        
+        header("location: ../ClientSide/home.php");
     }
 ?>

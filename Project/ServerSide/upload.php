@@ -1,31 +1,29 @@
 <?php
-	$conn = new PDO('mysql:host=localhost; dbname=test', 'root', '');
-	if(isset($_POST['save']) != ""){
-	  $name=$_FILES['myfile']['name'];
-	  $size=$_FILES['myfile']['size'];
-	  $temp=$_FILES['myfile']['tmp_name'];
-	  $fname = $name;
-	  $chk = $conn->query("SELECT * FROM  files where Nome = '$name' ")->rowCount();
-	  if($chk){
-	    $i = 1;
-	    $c = 0;
-		while($c == 0){
-	    	$i++;
-	    	$reversedParts = explode('.', strrev($name), 2);
-	    	$tname = (strrev($reversedParts[1]))."_".($i).'.'.(strrev($reversedParts[0]));
-	    	$chk2 = $conn->query("SELECT * FROM  files where Nome = '$tname' ")->rowCount();
-	    	if($chk2 == 0){
-	    		$c = 1;
-	    		$name = $tname;
-	    	}
-	    }
-	}
-	    $move =  move_uploaded_file($temp,"./Uploads/".$fname);
-	    if($move){
-	    	$query=$conn->query("insert into files(Nome, Tamanho)values('$name', '$size')");
-	        if($query){
-	            header("location:home.php");
-	        }
-	    }
-	}
-?>
+$conn = mysqli_connect('localhost', 'root', '', 'test');
+
+// Uploads files
+if (isset($_POST['save'])) { 
+    $filename = $_FILES['myfile']['name'];
+
+    $destination = './Uploads/' . $filename;
+    $extension = pathinfo($filename, PATHINFO_EXTENSION);
+
+    $file = $_FILES['myfile']['tmp_name'];
+    $size = $_FILES['myfile']['size'];
+
+    if (!in_array($extension, ['zip', 'pdf', 'docx', 'jpeg', 'jpg', 'png'])) {
+        echo "You file extension must be .zip, .pdf or .docx";
+    } elseif ($_FILES['myfile']['size'] > 1000000) { // file shouldn't be larger than 1Megabyte
+        echo "File too large!";
+    } else {
+        if (move_uploaded_file($file, $destination)) {
+            $sql = "INSERT INTO files (Nome, Tamanho) VALUES ('$filename', $size)";
+            if (mysqli_query($conn, $sql)) {
+                echo "File uploaded successfully";
+            }
+        } else {
+            echo "Failed to upload file.";
+        }
+    }
+}
+

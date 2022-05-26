@@ -14,21 +14,10 @@
 
     if($pass !== $password){
         header('location: ../register.php');
-        ?>
-        <script>
-            alert('Passwords do not match');
-            window.location.href='../register.php';
-        </script>
-        <?php
+
     }
     else if($num == 1){
         header('location: ../register.php');
-        ?>
-        <script>
-            alert('Username already exists');
-            window.location.href='../register.php';
-        </script>
-        <?php
     }
     else{
         $sql = "INSERT INTO registos (Nome, UserName, Pass) VALUES ('$name', '$username', '$password')";

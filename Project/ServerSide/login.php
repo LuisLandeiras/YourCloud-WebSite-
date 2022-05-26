@@ -13,7 +13,7 @@
 
     if($num == 1){
         $_SESSION['UserName'] = $username;
-        header('location: home.php');
+        header('location: ../ClientSide/home.php');
     }
     else{
         header('location: ../ClientSide/login.php');

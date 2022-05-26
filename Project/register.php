@@ -51,7 +51,7 @@
         <button type="reset" id="reset" value="Limpar">Limpar</button>
         <p id="ou"> <br> ------Ou------</p>
         <br>
-        <a href="./ClientSide/login.html" id="login">Faça login</a>
+        <a href="./ClientSide/login.php" id="login">Faça login</a>
       </form>
       <br>
       <div class="container">
@@ -84,5 +84,5 @@
     </div>
     <footer>YourCloud</footer>
     </body>
-    <?php include './Templates/back.html'; ?>
+    <?php include './Templates/back.html';?>
 </html>
