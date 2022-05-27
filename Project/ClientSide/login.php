@@ -1,3 +1,12 @@
+<?php
+    session_start();
+
+    if(isset($_SESSION['logged']) && $_SESSION['logged'] == true){
+        header('location: ../register.php');
+        exit;
+    }
+?>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -29,13 +38,15 @@
             <form action="../ServerSide/login.php" method="post">
                 <span class="text-center">login</span>
                 <div class="input-container">
-                    <input type="text" required="" name="UserName"/>
+                    <input type="text" name="UserName"/>
                     <label>UserName</label>		
                 </div>
                 <div class="input-container">		
-                    <input type="password" required="" name="Pass"/>
+                    <input type="password" name="Pass"/>
                     <label>Password</label>
                 </div>
+                <div style="color:white;"><?php if(isset($_SESSION['message'])){echo $_SESSION['message'];}?></div>
+            
                 <div id="divbtn">
                     <button type="submit" class="btn" name="login">Login</button>
                 </div>    

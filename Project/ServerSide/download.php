@@ -1,15 +1,26 @@
 <?php
-	$conn = new PDO('mysql:host=localhost; dbname=test', 'root', '');
- 
-	if(ISSET($_REQUEST['Nome'])){
-		$file = $_REQUEST['Nome'];
-		$query = $conn->prepare("SELECT * FROM files WHERE Nome='$file'");
-		$query->execute();
-		$fetch = $query->fetch();
- 
-		header("Content-Disposition: attachment; filename=".$fetch['file']);
-		header("Content-Type: application/octet-stream;");
-		readfile("./Uploads/".$fetch['file']);
-	}
-?>
+$conn = mysqli_connect('localhost', 'root', '', 'test');
 
+if (isset($_GET['file_id'])) {
+    $id = $_GET['file_id'];
+
+    // fetch file to download from database
+    $sql = "SELECT * FROM files WHERE id=$id";
+    $result = mysqli_query($conn, $sql);
+
+    $file = mysqli_fetch_assoc($result);
+    $filepath = './Uploads/' . $file['Nome'];
+
+    if (file_exists($filepath)) {
+        header('Content-Description: File Transfer');
+        header('Content-Type: application/octet-stream');
+        header('Content-Disposition: attachment; filename=' . basename($filepath));
+        header('Expires: 0');
+        header('Cache-Control: must-revalidate');
+        header('Pragma: public');
+        header('Content-Length: ' . filesize('./Uploads/' . $file['Nome']));
+        readfile('./Uploads/' . $file['Nome']);
+        exit;
+    }
+}
+?>
