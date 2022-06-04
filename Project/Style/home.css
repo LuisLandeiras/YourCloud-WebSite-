@@ -1,14 +1,16 @@
 body{
   background: linear-gradient(black 30%, rgb(94, 2, 89));
-  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  width: 100%;
   background-repeat: no-repeat;
   height: 100vh;
 }
+
 h3{
   color: white;
   text-align: center;
 }
-/*Popup do upload*/
+
+
 .tabela{
   width: 500px;
   height: auto;
@@ -50,4 +52,14 @@ h3{
   top: 5px;
   text-align: right;
 }
-/*-------------------------------------*/
+
+.tb{
+  border: 1px solid white;
+  width: 50%;
+  color: white;
+  border-radius: 25px;
+}
+
+.td th{
+  width: 20%;
+}
