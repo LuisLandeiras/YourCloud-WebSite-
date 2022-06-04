@@ -35,10 +35,11 @@
     <br>
 
     <div class="tabela" style="display: none;"> 
-        <form action="" method="post" enctype="multipart/form-data" >
+    <div id="close"><button onclick="close()">XXX</button></div>
+        <form action="../ServerSide/upload.php" method="post" enctype="multipart/form-data" >
             <div id="container">
                 <div id="texto"><h3>Upload File</h3></div>
-                <div id="close"><button onclick="close()">X</button></div>
+                
             </div>
             <input type="file" name="myfile"> <br> <br>
             <button type="submit" name="save">upload</button>
