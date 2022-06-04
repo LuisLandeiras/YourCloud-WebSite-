@@ -1,92 +1,83 @@
 <?php 
-  
   session_start(); 
-	if (isset($_SESSION['username'])) {	
-		header('location: login.php');
+	if (isset($_SESSION['id'])) {	
+		header('location: ../ServerSide/login.php');
 	}
 ?>
-
+<?php include '../ServerSide/upload.php';?>
+<?php include '../ServerSide/download.php';?>
+<?php include '../ServerSide/delete.php';?>
 <!DOCTYPE html>
 <html>
-<head>
-	<title>Home</title>
-    <link rel="stylesheet" type="text/css" href="../Pr/Style/navbar.css">
-    <link rel="stylesheet" type="text/css" href="paginautilizador.css">
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
-
-</head>
-<body>
-	<nav class="navbar" id="bar">
-        <a href="index.php" id="logo" target=_blank>YourCloud</a>
-        <input type="checkbox" id="toggler">
-        <label for="toggler"><i class="ri-menu-line"></i></label>
-        <div class="menu">
-            <ul class="list">
-                <li><a href="sobre.php" target=_blank>Sobre Nós</a></li>
-				<li><a href="logout.php">Logout</a></li>
-                <li><a onclick="view()" style="cursor: pointer;">Upload</a></li>
-                <li>
-                    <input type="checkbox" id="tema" onclick="background()">
-                    <label for="tema" class="button" id="button"></label>
-                </li>
-            </ul>
-        </div>
-    </nav>
-    <br>
-
-    <div class="tabela" style="display: none;"> 
-    <div id="close"><button onclick="close()">XXX</button></div>
-        <form action="../ServerSide/upload.php" method="post" enctype="multipart/form-data" >
-            <div id="container">
-                <div id="texto"><h3>Upload File</h3></div>
-                
+    <head>
+    	<title>Home</title>
+        <link rel="stylesheet" type="text/css" href="../Style/navbar.css">
+        <link rel="stylesheet" type="text/css" href="../Style/home.css">
+        <script src="../Script/homeBackground.js"></script>
+        <script src="../Script/homeUpload.js"></script>
+        <script src="../Script/pdf.js"></script>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+    </head>
+    <body style="height:100vh;width:100%;overflow-x:none">
+    	<nav class="navbar" id="bar">
+            <a href="../register.php" id="logo" target=_blank>YourCloud</a>
+            <input type="checkbox" id="toggler">
+            <label for="toggler"><i class="ri-menu-line"></i></label>
+            <div class="menu">
+                <ul class="list">
+                    <li><button id="PDF" onclick="PDF()">PDF</button></li>
+                    <li><a onclick="view()" style="cursor: pointer;">Upload</a></li>
+    				<li><a href="../ServerSide/logout.php">Logout</a></li>
+                    <li>
+                        <input type="checkbox" id="tema" onclick="background()">
+                        <label for="tema" class="button" id="button"></label>
+                    </li>
+                </ul>
             </div>
-            <input type="file" name="myfile"> <br> <br>
-            <button type="submit" name="save">upload</button>
-        </form>
-    </div>
-
-    <script>
-        function view() {
-            document.getElementsByClassName("tabela")[0].style.display = "block";
-            document.getElementsByClassName("tabela")[0].style = "position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);";
-        }
-        function close(){
-            document.getElementsByClassName("tabela")[0].style.display = "none";
-        }
-	</script>
-
-<table class="tb">
-			<thead>
-				<tr>
-					<th>#</th>
-					<th>File</th>
-                    <th>Size(Mb)</th>	
-                    <th>View</th>
-                    <th>Download</th>
-                    <th>Eliminar</th>
-				</tr>
-			</thead>
-			<?php
-			$query=$conn->query("select * from files order by id desc");
+        </nav>
+        <br>
+        <div class="tabela" style="display: none;"> 
+            <form action="../ServerSide/upload.php" method="post" enctype="multipart/form-data" >
+                <div id="container">
+                    <div id="texto"><h3>Upload File</h3></div>
+                    <div id="close"><button onclick="close()">X</button></div>
+                </div>
+                <input type="file" name="myfile"> <br> <br>
+                <div id="divbtn">
+                    <button class="btn" type="submit" name="save">upload</button>
+                </div>
+                
+            </form>
+        </div>
+        <script src="../Script/homeUpload.js"></script>
+        <table style="margin-left: auto; margin-right:auto; width:80%; height:auto; border-radius:15px; border-spacing:0; margin-top:50px">
+        	<thead>
+        		<tr>
+        			<th style="color: white; border-bottom:1px solid white">#</th>
+        			<th style="color: white; border-bottom:1px solid white">File</th>
+                    <th style="color: white; border-bottom:1px solid white">Size(Mb)</th>	
+                    <th style="color: white; border-bottom:1px solid white">View</th>
+                    <th style="color: white; border-bottom:1px solid white">Download</th>
+                    <th style="color: white; border-bottom:1px solid white">Eliminar</th> 
+        		</tr>
+        	</thead>
+        	<?php
+        	$query=$conn->query("SELECT *  from  files Where (SELECT Id FROM registos WHERE UserName = '".$_SESSION["UserName"]."')=idu order by id desc");
             $i = 0;
-			while($row=$query->fetch()){
-				$name=$row['Nome'];
+        	while($row=$query->fetch()){
+        		$name=$row['Nome'];
                 $i++;
                 $size=$row['Tamanho'];
-			?>
-			<tr>
-                <td><?php echo $i;?></td>
-				<td>&emsp;<?php echo $name;?></td>
-                <td>&emsp;<?php echo number_format((float)$size/1024/1024, 3);?></td>
-                <td><a href="./Uploads/<?php echo $row['Nome'];?>" target="_blank">view</a></td>
-				<td><a href="">download</a></td>
-                <td><a href="?delete=<?php echo $row['id']; ?>">eliminar</a></td>
-			</tr>
-            <hr style="color: red;">
-			<?php } ?>
-	</table>
-
-</body>
+        	?>
+        	<tr>
+                <td style="color: white; text-align:center; border-bottom:1px solid white; height: 50px"><?php echo $i;?></td>
+        		<td style="color: white; text-align:center; border-bottom:1px solid white">&emsp;<?php echo $name;?></td>
+                <td style="color: white; text-align:center; border-bottom:1px solid white">&emsp;<?php echo number_format((float)$size/1024/1024, 3);?></td>
+                <td style="text-align:center; border-bottom:1px solid white"><a id="a" href="../ServerSide/Uploads/<?php echo $row['Nome'];?>" target="_blank">view</a></td>
+        		<td style="text-align:center; border-bottom:1px solid white"><a id="a" href="../ServerSide/download.php?file_id=<?php echo $row['id'] ?>">download</a></td>
+                <td style="text-align:center; border-bottom:1px solid white"><a id="a" href="../ServerSide/delete.php?delete=<?php echo $row['id']; ?>">eliminar</a></td>  
+        	</tr>
+        	<?php } ?>
+        </table>
+    </body>
 </html>
-
